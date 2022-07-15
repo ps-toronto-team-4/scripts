@@ -22,9 +22,9 @@ VALUES
 (3, 'Dining Out', 'FEC600', 'Eating out or takeout', 1),
 (4, 'Loans', '97E2D5', 'Student loans, credit cards, etc.', 1),
 (5, 'Transportation', '009418', 'Transportation related expenses', 1),
-(6, 'Electronics', '5BEF007D', 'idk why I made this lol', 1),
-(7, 'Car Insurance', '5BEF007D', null, 1),
-(8, 'Cell Phone Bill', '5BEF007D', null, 1)
+(6, 'Electronics', 'C1A6FA', 'idk why I made this lol', 1),
+(7, 'Car Insurance', 'FFC803', null, 1),
+(8, 'Cell Phone Bill', 'EF7300', null, 1)
 ;
 COMMIT;
 
