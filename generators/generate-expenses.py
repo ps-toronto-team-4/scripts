@@ -9,8 +9,7 @@ from lorem.text import TextLorem
             - merchant is from 0 (null) to 4
 """
 
-out = "INSERT INTO expenses(id, title, amount, date, user_id, description, category_id, merchant_id, recurrence_id)\nVALUES\n"
-count = 1
+out = "INSERT INTO expenses(title, amount, date, user_id, description, category_id, merchant_id, recurrence_id)\nVALUES\n"
 
 def expense_occurs():
     return randint(1, 4) == 1
@@ -50,7 +49,6 @@ for year in [2018, 2019, 2020, 2021, 2022]:
                     title = get_random_title()
                     amount = get_random_amount()
                     description = get_random_description()
-                    out += f"({count}, '{title}', {amount}, '{year}-{month}-{day}', 1, { description if description else 'null'}, {categoryid}, {merchantid}, null),\n"
-                    count +=1
+                    out += f"('{title}', {amount}, '{year}-{month}-{day}', 1, { description if description else 'null'}, {categoryid}, {merchantid}, null),\n"
 out = out[:-2]+'\n;\nCOMMIT;'
-open('sql/insert-expenses.sql', 'w').write(out)
+open('../sql/insert-expenses.sql', 'w').write(out)

@@ -2,6 +2,10 @@ import psycopg2
 
 conn = psycopg2.connect(database="postgres", user = "postgres", password = "admin123", host = "127.0.0.1", port = "5432")
 
+creates = ""
+with open('sql/create-tables.sql', 'r') as f:
+    creates = f.read()
+
 deletes = ""
 with open('sql/deletes.sql', 'r') as f:
     deletes = f.read()
@@ -25,6 +29,9 @@ with open('sql/insert-budget-categories.sql', 'r') as f:
 print("Opened database successfully")
 
 cur = conn.cursor()
+
+cur.execute(creates);
+print("Successfully dropped and created tables")
 
 cur.execute(deletes);
 print("Successfully cleared db")

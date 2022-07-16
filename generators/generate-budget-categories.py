@@ -1,7 +1,6 @@
 from random import randint, uniform
 
-out = "INSERT INTO budget_categories(id, amount, budget_id, category_id)\nVALUES\n"
-count = 1
+out = "INSERT INTO budget_categories(amount, budget_id, category_id)\nVALUES\n"
 
 def category_occurs():
     return randint(1, 2) == 1
@@ -13,8 +12,7 @@ for budget in range(1, 55):
     for category in range(1, 9):
         if category_occurs():
             amount = get_random_amount()
-            out += f"({count}, {amount}, {budget}, {category}),\n"
-            count+=1
+            out += f"({amount}, {budget}, {category}),\n"
 
 out = out[:-2]+'\n;\nCOMMIT;'
-open('sql/insert-budget-categories.sql', 'w').write(out)
+open('../sql/insert-budget-categories.sql', 'w').write(out)
