@@ -1,58 +1,56 @@
-from random import randint, uniform, sample
-
+from random import randint, uniform
+from lorem.text import TextLorem
 """
-
-- create expenses for all of 2020, 2021
+- create expenses for all of 2018-2022
     - every month
-        - expenses has a 1/2 chance of occurring each day
+        - expenses have a 1/4 chance of occurring each day
             - 1-4 expenses per day an expense occurs
             - category is from 0 (null) to 8
             - merchant is from 0 (null) to 4
-
-
 """
 
-out = ""
+out = "INSERT INTO expenses(id, title, amount, date, user_id, description, category_id, merchant_id, recurrence_id)\nVALUES\n"
 count = 1
 
-nouns = open('nouns.txt', 'r').readlines()
-
 def expense_occurs():
-    return randint(1, 2) == 1
+    return randint(1, 4) == 1
 
 def get_random_category_id():
-    id = randint(0, 9)
+    id = randint(0, 8)
     return 'null' if id==0 else id
 
 def get_random_merchant_id():
-    id = randint(0, 5)
+    id = randint(0, 4)
     return 'null' if id==0 else id
 
-def get_random_noun():
-    return sample(nouns, 1)[0]
-
 def get_random_title():
-    return f'{get_random_noun()} {get_random_noun()}'
+    lorem = TextLorem(srange=(2, 4))
+    return lorem.sentence()[:-1]
 
 def get_random_description():
-    out = ''
-    for i in range(randint(5, 25)):
-        out+= get_random_noun() + ' '
+    if randint(1, 2) == 1:
+        lorem = TextLorem(srange=(4, 10))
+        return "'" + lorem.sentence()[:-1] + "'"
+    return ""
 
 def get_random_amount():
     return round(uniform(10.00, 125.00), 2)
 
-for year in [2020, 2021, 2022]:
+for year in [2018, 2019, 2020, 2021, 2022]:
     for month in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']:
         if year == 2022 and month > '07':
             break
         for day in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']:
+            if year == 2022 and month == '07' and day > '15':
+                break
             if expense_occurs():
-                merchantid = get_random_merchant_id()
-                categoryid = get_random_category_id()
-                title = get_random_title()
-                amount = get_random_amount()
-                description = get_random_description()
-                out += f"({count}, '{title}', {amount}, '{year}-{month}-{day}', 1, '{description}', {categoryid}, {merchantid}, null),\n"
-                print(out)
-                count +=1
+                for i in range(randint(1, 5)):
+                    merchantid = get_random_merchant_id()
+                    categoryid = get_random_category_id()
+                    title = get_random_title()
+                    amount = get_random_amount()
+                    description = get_random_description()
+                    out += f"({count}, '{title}', {amount}, '{year}-{month}-{day}', 1, { description if description else 'null'}, {categoryid}, {merchantid}, null),\n"
+                    count +=1
+out = out[:-2]+'\n;\nCOMMIT;'
+open('sql/insert-expenses.sql', 'w').write(out)

@@ -36,10 +36,3 @@ VALUES
 (4, 'Bell', 'Bell Canada mobile division', 1, 8)
 ;
 COMMIT;
-
-INSERT INTO expenses(id, title, amount, date, user_id, description, category_id, merchant_id, recurrence_id)
-VALUES
-(1, 'Test Expense', 12.56, '2022-02-01', 1, null, null, null, null)
-;
-COMMIT;
-
