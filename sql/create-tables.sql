@@ -164,9 +164,18 @@ CREATE TABLE IF NOT EXISTS public.budget_categories
     amount real,
     budget_id integer,
     category_id integer,
+    user_id integer,
     CONSTRAINT budget_categories_pkey PRIMARY KEY (id),
+    CONSTRAINT fk7dnkp89rbhc1ygj79rxwunvu6 FOREIGN KEY (category_id)
+        REFERENCES public.categories (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
     CONSTRAINT fk7xdi9b13c0h6mpy55c0lvgs2w FOREIGN KEY (budget_id)
         REFERENCES public.budgets (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fkm5qlang2cio94kb3heobpbydc FOREIGN KEY (user_id)
+        REFERENCES public.users (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
