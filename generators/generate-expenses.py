@@ -9,7 +9,7 @@ from lorem.text import TextLorem
             - merchant is from 0 (null) to 4
 """
 
-out = "INSERT INTO expenses(title, amount, date, user_id, description, category_id, merchant_id, recurrence_id)\nVALUES\n"
+out = "INSERT INTO expenses(amount, date, user_id, description, category_id, merchant_id, recurrence_id)\nVALUES\n"
 
 def expense_occurs():
     return randint(1, 4) == 1
@@ -22,9 +22,9 @@ def get_random_merchant_id():
     id = randint(0, 4)
     return 'null' if id==0 else id
 
-def get_random_title():
-    lorem = TextLorem(srange=(2, 4))
-    return lorem.sentence()[:-1]
+# def get_random_title():
+#     lorem = TextLorem(srange=(2, 4))
+#     return lorem.sentence()[:-1]
 
 def get_random_description():
     if randint(1, 2) == 1:
@@ -46,9 +46,9 @@ for year in [2018, 2019, 2020, 2021, 2022]:
                 for i in range(randint(1, 5)):
                     merchantid = get_random_merchant_id()
                     categoryid = get_random_category_id()
-                    title = get_random_title()
+                    # title = get_random_title()
                     amount = get_random_amount()
                     description = get_random_description()
-                    out += f"('{title}', {amount}, '{year}-{month}-{day}', 1, { description if description else 'null'}, {categoryid}, {merchantid}, null),\n"
+                    out += f"({amount}, '{year}-{month}-{day}', 1, { description if description else 'null'}, {categoryid}, {merchantid}, null),\n"
 out = out[:-2]+'\n;\nCOMMIT;'
 open('../sql/insert-expenses.sql', 'w').write(out)

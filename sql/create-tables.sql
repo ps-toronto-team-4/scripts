@@ -106,7 +106,6 @@ CREATE TABLE IF NOT EXISTS public.expenses
     amount double precision,
     date timestamp without time zone,
     description character varying(255) COLLATE pg_catalog."default",
-    title character varying(255) COLLATE pg_catalog."default",
     user_id integer,
     category_id integer,
     merchant_id integer,
