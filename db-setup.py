@@ -47,7 +47,7 @@ cur.execute(insert_expenses);
 print("Successfully inserted expenses for user 1")
 
 cur.execute(insert_expenses_small);
-print("Successfully inserted expenses for user 1")
+print("Successfully inserted expenses for user 2")
 
 cur.execute(insert_budgets);
 print("Successfully inserted budgets")
