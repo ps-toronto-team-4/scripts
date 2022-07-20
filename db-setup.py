@@ -18,6 +18,10 @@ insert_expenses = ""
 with open('sql/insert-expenses.sql', 'r') as f:
     insert_expenses = f.read()
 
+insert_expenses_small = ""
+with open('sql/insert-expenses-small.sql', 'r') as f:
+    insert_expenses_small = f.read()
+
 insert_budgets = ""
 with open('sql/insert-budgets.sql', 'r') as f:
     insert_budgets = f.read()
@@ -40,7 +44,10 @@ cur.execute(inserts);
 print("Successfully inserted data (besides expenses)")
 
 cur.execute(insert_expenses);
-print("Successfully inserted expenses")
+print("Successfully inserted expenses for user 1")
+
+cur.execute(insert_expenses_small);
+print("Successfully inserted expenses for user 1")
 
 cur.execute(insert_budgets);
 print("Successfully inserted budgets")
