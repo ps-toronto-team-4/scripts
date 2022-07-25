@@ -98,7 +98,7 @@ COMMIT;
 
 -- Table: public.recurrences
 
-DROP TABLE IF EXISTS public.recurrences;
+DROP TABLE IF EXISTS public.recurrences CASCADE;
 
 CREATE TABLE IF NOT EXISTS public.recurrences
 (
