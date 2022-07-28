@@ -1,6 +1,5 @@
 import psycopg2
-
-conn = psycopg2.connect(database="postgres", user = "postgres", password = "admin123", host = "127.0.0.1", port = "5432")
+conn = psycopg2.connect(database="postgres", user = "postgres", password = "admin123", host = 'localhost', port = "5432")
 
 creates = ""
 with open('sql/create-tables.sql', 'r') as f:

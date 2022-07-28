@@ -1,6 +1,12 @@
 # scripts
 Useful scripts for improving developer quality of life
 
+*Just want to run the db-init script and have Docker installed? simply run the following:*
+
+```bash
+.\run.bat
+```
+
 ## db-setup.py
 
 This file will drop any existing databases you have, recreate them, and insert sample data into them. It creates one user, 8 categories, 4 merchants, 4 years worth of sample expenses (over 1000 total), and sample budgets/budget categories for each month in those 4 years. If you'd like a fully-featured database with enough data to fully test the app, this is the script for you.
@@ -37,3 +43,22 @@ If you just want to start from a fresh database without any of the sample data, 
 ### generators/
 
 This is a collection of Python scripts that create some of the sql files in the `sql` directory. Their uses can be deduced by their file names. Note that to run the `generate-budgets.py` script, you'll need the Python library `lorem`. Simply run `pip install lorem` to install it.
+
+## Running Within Docker
+
+If you don't have Python installed or simply don't want to go through the process of using Python, you can run these scripts within Docker.
+
+Simply run the following:
+
+```bash
+docker rmi ps4-scripts
+docker build --tag ps4-scripts .
+docker run --net=host --rm ps4-scripts
+docker rmi ps4-scripts
+```
+
+or, simply use the run script:
+
+```bash
+.\run.bat
+```
