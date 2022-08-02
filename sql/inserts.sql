@@ -7,25 +7,25 @@ COMMIT;
 
 INSERT INTO default_categories(name, colour_hex, description)
 VALUES
-('Groceries', '2797b0', 'Food and other misc. groceries'),
-('Rent', 'b662bf', 'Payment for rent'),
-('Dining Out', 'eb7734', 'Eating out or takeout'),
-('Miscellaneous', 'e6e287', 'Expenses that do not quite fit anywhere else'),
-('Transportation', 'eb4034', 'Transportation related expenses')
+('Groceries', '2797B0', 'Food and other misc. groceries'),
+('Rent', 'B662BF', 'Payment for rent'),
+('Dining Out', 'EB7734', 'Eating out or takeout'),
+('Miscellaneous', 'E6E287', 'Expenses that do not quite fit anywhere else'),
+('Transportation', 'EB4034', 'Transportation related expenses')
 ;
 COMMIT;
 
 INSERT INTO categories(name, colour_hex, description, user_id)
 VALUES
 -- user 1 categories
-('Groceries', '2797b0', 'Food and other misc. groceries', 1),
-('Rent', 'b662bf', 'Payment for rent', 1),
-('Dining Out', 'eb7734', 'Eating out or takeout', 1),
-('Miscellaneous', 'e6e287', 'Expenses that do not quite fit anywhere else', 1),
-('Transportation', 'eb4034', 'Transportation related expenses', 1),
-('Electronics', 'f0f000', 'Phones, tablets, computers, etc.', 1),
-('Car Insurance', 'abe8a9', null, 1),
-('Cell Phone Bill', 'd3eb34', null, 1)
+('Groceries', '2797B0', 'Food and other misc. groceries', 1),
+('Rent', 'B662BF', 'Payment for rent', 1),
+('Dining Out', 'EB7734', 'Eating out or takeout', 1),
+('Miscellaneous', 'E6E287', 'Expenses that do not quite fit anywhere else', 1),
+('Transportation', 'EB4034', 'Transportation related expenses', 1),
+('Electronics', 'FFFF00', 'Phones, tablets, computers, etc.', 1),
+('Car Insurance', 'ABE8A9', null, 1),
+('Cell Phone Bill', 'D3EB34', null, 1)
 ;
 COMMIT;
 
