@@ -1,7 +1,7 @@
 INSERT INTO users(email, password_hash, username, first_name, last_name, phone_number) 
 VALUES
-('admin@gmail.com', '$2a$06$WUPrYU2eGA.eGA.eGA.eG.RlJXIm97FUjHFhtUnRKIdkPcTX5ihU2', 'admin', 'Jeremie', 'Bornais', '4164164164'),
--- password is AdminPass123!
+('ps4demo@demomail.com', '$2a$06$XETrZw.eGA.eGA.eGA.eG.kn0uWg6gwkxjgJW/8QnQGP4wiBKaPVG', 'demo', 'Jeremie', 'Bornais', '4164164164'),
+-- password is DemoPass123!
 ('admin2@gmail.com', '$2a$06$WUPrYU2wGA.eGA.eGA.eG.ySMNQTQKikgq.XO3XB6S4C2.tWD0HWq', 'admin2', 'Calvin', 'Mozola', '4164164164')
 -- password is AdminPass123!
 ;

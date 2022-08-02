@@ -37,10 +37,10 @@ def get_random_amount():
 
 for year in [2022]:
     for month in ['06', '07']:
-        if year == 2022 and month > '07':
+        if year == 2022 and month > '08':
             break
         for day in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']:
-            if year == 2022 and month == '07' and day > '15':
+            if year == 2022 and month == '08' and day > '01':
                 break
             if expense_occurs():
                 for i in range(randint(1, 5)):
