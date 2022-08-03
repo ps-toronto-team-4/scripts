@@ -35,7 +35,7 @@ def get_random_description():
 def get_random_amount():
     return round(uniform(10.00, 125.00), 2)
 
-for year in [2018, 2019, 2020, 2021, 2022]:
+for year in [2022]:
     for month in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']:
         if year == 2022 and month > '08':
             break
