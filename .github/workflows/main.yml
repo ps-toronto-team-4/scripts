@@ -1,0 +1,19 @@
+name: Reset Database
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  reset-db:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Scripts Image
+      run: docker build -t ps4-scripts .
+    - name: Run the Script
+      run: docker run --net=host --rm ps4-scripts
+    - name: Clean Up
+      run: docker rmi ps4-scripts
