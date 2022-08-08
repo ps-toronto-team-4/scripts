@@ -18,11 +18,9 @@ print("Successfully inserted data (besides expenses)")
 for i in range(1, NUMUSERS+1):
     cur.execute(open(f'sql/insert-expenses-user{i}.sql', 'r').read())
     print(f"Successfully inserted expenses for user {i}")
-
-cur.execute(open('sql/insert-budgets.sql', 'r').read())
-print("Successfully inserted budgets")
-
-cur.execute(open('sql/insert-budget-categories.sql', 'r').read())
-print("Successfully inserted budget categories")
+    cur.execute(open(f'sql/insert-budgets-user{i}.sql', 'r').read())
+    print(f"Successfully inserted budgets for user {i}")
+    cur.execute(open(f'sql/insert-budget-categories-user{i}.sql', 'r').read())
+    print(f"Successfully inserted budget categories for user {i}")
 
 conn.commit()
