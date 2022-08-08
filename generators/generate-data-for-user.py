@@ -47,7 +47,7 @@ VALUES"""
             if year == 2022 and month > '08':
                 break
             for day in ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']:
-                if year == 2022 and month == '08' and day > '08':
+                if year == 2022 and month == '08' and day > '11':
                     break
                 if expense_occurs():
                     for i in range(randint(1, 5)):
@@ -62,7 +62,7 @@ VALUES"""
 
     for year in [2022]:
         for month in range(0, 12):
-            if year == 2022 and month > 6:
+            if year == 2022 and month > 7:
                 break
             temp += f"({month}, {year}, {userId}),\n"
     temp = temp[:-2]+'\n;\nCOMMIT;\n'
@@ -76,7 +76,7 @@ VALUES"""
     def get_random_amount():
         return round(uniform(100.00, 1000.00), 2)
 
-    for budget in range(1, 8):
+    for budget in range(1+((userId-1)*8), 8+((userId-1)*8)):
         for category in range(1+((userId-1)*8), 9+((userId-1)*8)):
             if category_occurs():
                 amount = get_random_amount()
