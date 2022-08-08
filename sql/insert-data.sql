@@ -341,7 +341,6 @@ VALUES(45.73, '2022-01-02', 2, null, 14, 7, null),
 (94.31, '2022-08-02', 2, null, 14, 6, null),
 (79.07, '2022-08-02', 2, 'Etincidunt dolorem etincidunt dolorem', 12, 7, null),
 (55.37, '2022-08-02', 2, 'Est ipsum neque sit sit labore ipsum dolor quiquia', 13, 7, null),
-(15.22, '2022-08-03', 2, 'Amet modi quisquam non quaerat sed est', null, null, null),
 (45.64, '2022-08-03', 2, 'Aliquam modi ut voluptatem tempora dolor etincidunt porro adipisci labore', 11, 8, null),
 (87.03, '2022-08-03', 2, 'Dolorem quisquam porro adipisci ipsum est dolore dolore labore', 14, 5, null),
 (13.38, '2022-08-05', 2, 'Quisquam sit neque aliquam sit velit', 11, 5, null),
@@ -396,8 +395,8 @@ VALUES
 (972.76, 16, 9, 2),
 (531.76, 16, 10, 2),
 (550.06, 16, 12, 2),
-(953.67, 16, 13, 2),
-(254.88, 16, 14, 2),
+(13.67, 16, 13, 2),
+(54.88, 16, 14, 2),
 (936.91, 16, 15, 2),
 (499.43, 16, 16, 2)
 ;
