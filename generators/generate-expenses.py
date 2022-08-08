@@ -11,16 +11,18 @@ from lorem.text import TextLorem
 
 out = "INSERT INTO expenses(amount, date, user_id, description, category_id, merchant_id, recurrence_id)\nVALUES\n"
 
+userId = int(input("Generate for which userid? > "))
+
 def expense_occurs():
     return randint(1, 4) == 1
 
 def get_random_category_id():
     id = randint(0, 8)
-    return 'null' if id==0 else id
+    return 'null' if id==0 else id + ((userId-1) * 8)
 
 def get_random_merchant_id():
     id = randint(0, 4)
-    return 'null' if id==0 else id
+    return 'null' if id==0 else id + ((userId-1) * 4)
 
 # def get_random_title():
 #     lorem = TextLorem(srange=(2, 4))
@@ -49,6 +51,6 @@ for year in [2022]:
                     # title = get_random_title()
                     amount = get_random_amount()
                     description = get_random_description()
-                    out += f"({amount}, '{year}-{month}-{day}', 1, { description if description else 'null'}, {categoryid}, {merchantid}, null),\n"
+                    out += f"({amount}, '{year}-{month}-{day}', {userId}, { description if description else 'null'}, {categoryid}, {merchantid}, null),\n"
 out = out[:-2]+'\n;\nCOMMIT;'
-open('../sql/insert-expenses.sql', 'w').write(out)
+open(f'../sql/insert-expenses-user{userId}.sql', 'w').write(out)
